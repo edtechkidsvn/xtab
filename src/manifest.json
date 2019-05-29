@@ -1,16 +1,31 @@
 {
-  "name": "Chrome Extension Webpack",
+  "author": "HuyNQ",
+  "name": "XTab",
+  "version": "0.1",
+  "manifest_version": 2,
+  "minimum_chrome_version": "37",
+  "description": "A Tab for X",
   "options_page": "options.html",
   "background": {
     "page": "background.html"
   },
+  "permissions": [
+    "management",
+    "tabs",
+    "sessions"
+  ],
   "browser_action": {
     "default_popup": "popup.html",
-    "default_icon": "icon-34.png"
+    "default_icon": "icon-128.png"
   },
   "icons": {
     "128": "icon-128.png"
   },
-  "manifest_version": 2,
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "web_accessible_resources": [
+    "newtab.html"
+  ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
