@@ -33,6 +33,17 @@ var options = {
   module: {
     rules: [
       {
+        test: /\.tag$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'riot-tag-loader',
+          options: {
+            hot: true,
+            type: 'es6'
+          }
+        }]
+      },
+      {
         test: /\.css$/,
         loader: "style-loader!css-loader",
         exclude: /node_modules/
