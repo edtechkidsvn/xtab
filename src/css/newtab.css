@@ -23,9 +23,15 @@ body {
   padding: 9px 12px;
   white-space: nowrap;
   -webkit-user-select: none;
+  display: grid;
+  grid-template-columns: 28% 40%;
 }
 
-#movies_panel {
-  width: 26%;
-  height: 100%;
+.fullwidth {
+  width: 100%;
+}
+
+input {
+  height: 24px;
+  outline: none;
 }

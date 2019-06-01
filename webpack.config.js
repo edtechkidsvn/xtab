@@ -27,7 +27,7 @@ var options = {
     newtab: path.join(__dirname, "src", "js", "newtab.js")
   },
   output: {
-    path: path.join(__dirname, "build"),
+      
     filename: "[name].bundle.js"
   },
   module: {

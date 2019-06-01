@@ -1,6 +1,8 @@
 import '../tags/movies.tag';
+import '../tags/novels.tag';
+
 import riot from 'riot';
 import '../css/newtab.css';
 
-riot.mount('*');
-
+riot.mount('movies');
+riot.mount('novels');

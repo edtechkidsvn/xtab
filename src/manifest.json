@@ -10,6 +10,7 @@
     "page": "background.html"
   },
   "permissions": [
+    "activeTab",
     "management",
     "tabs",
     "sessions"
