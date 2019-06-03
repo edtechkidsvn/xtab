@@ -21,6 +21,7 @@
   <style>
     #page_controls.visible {
       opacity: 1;
+      transition: opacity 0.3s;
     }
 
     #page_controls {
@@ -33,6 +34,7 @@
       align-items: center;
       opacity: 0;
       padding: 4px 18px;
+      transition: opacity 0.2s;
     }
     
     #page_controls .btn {
