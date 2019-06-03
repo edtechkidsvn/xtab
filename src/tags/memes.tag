@@ -40,6 +40,8 @@
     import './raw.tag';
     import loadMemes from '../services/memes';
 
+    this.memesEnabled = localStorage.getItem('memesEnabled') || false;
+    
     this.on('mount', async () => {
       this.loading = true;
       this.update();
@@ -51,11 +53,10 @@
 
     this.on('update', () => {
       riot.mount('raw');
-    })
+    });
 
     this.scroll = (async (e) => {
       if (e.target.scrollHeight - e.target.scrollTop < 1000 && !this.loading) {
-        console.log('load more');
         this.loading = true;
         this.update();
         this.memesData = await loadMemes(this.memesData.nextCursor);

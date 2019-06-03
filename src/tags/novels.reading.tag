@@ -88,11 +88,16 @@
     }).bind(this);
     
     const openNovel = (async (id) => {
-      const novel = await db.get(id);
-      const chapterIndex = novel.lastChaperIndex || 0;
-      this.novel = novel;
-      this.chapterIndex = chapterIndex;
-      this.update();
+      try {
+        const novel = await db.get(id);
+        const chapterIndex = novel.lastChaperIndex || 0;
+        this.novel = novel;
+        this.chapterIndex = chapterIndex;
+        this.update();
+      } catch (err) {
+        this.noLastNovel = true;
+        this.update();
+      }
     }).bind(this);
     
     const lastNovelId = localStorage.getItem('lastNovelId');
@@ -141,12 +146,16 @@
       this.update();
     }, 300)).bind(this);
 
+    const showPageControls = ((scrollTop) => {
+      this.pageControlsVisible = true;
+      this.update();
+      hidePageControls(scrollTop);
+    }).bind(this);
+
     this.on('mount', () => {
       const tabContent = document.getElementById("tab_content");
       tabContent.addEventListener('scroll', (e) => {
-        this.pageControlsVisible = true;
-        this.update();
-        hidePageControls(e.target.scrollTop);
+        showPageControls(e.target.scrollTop);
       });
     });
     
