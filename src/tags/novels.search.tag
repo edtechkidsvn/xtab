@@ -86,7 +86,10 @@
           link: a.attrs.href,
         };
       })
-      .filter(result => result.link && !result.link.includes('https://webtruyen.com/searching/'));
+      .filter(result => result.link &&
+        !result.link.includes('https://webtruyen.com/searching/') &&
+        !result.link.includes('https://webtruyen.com/tac-gia/')
+        );
       riotTag.loading = false;
       riotTag.searchResults = searchResults;
       const scanNovelInDb = 

@@ -6,9 +6,11 @@ async function waitForRandomSecs() {
   })
 }
 
-async function loadContent(url) {
+async function loadContent(url, withDelay) {
   const urlWithCors = `https://cors-mx.herokuapp.com/${url}`;
-  await waitForRandomSecs();
+  if (withDelay) {
+    await waitForRandomSecs();
+  }
   const response = await axios.get(urlWithCors);
   return response.data;
 }
