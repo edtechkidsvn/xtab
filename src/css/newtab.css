@@ -7,9 +7,6 @@ body {
   background-color: #fff;
   padding: 0;
   margin: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
-  /* font-size: 14px; */
-  /* line-height: 2; */
   box-sizing: border-box;
 }
 
@@ -21,10 +18,10 @@ body {
   width: 100%;
   height: 100%;
   padding: 9px 12px;
-  white-space: nowrap;
   -webkit-user-select: none;
   display: grid;
   grid-template-columns: 28% 40%;
+  grid-template-rows: 100%;
 }
 
 .fullwidth {
@@ -32,6 +29,10 @@ body {
 }
 
 input {
-  height: 24px;
+  height: 28px;
   outline: none;
+  border-radius: 2px;
+  border: 1px solid #CCCCCC;
+  padding-left: 6px;
+  padding-right: 6px;
 }

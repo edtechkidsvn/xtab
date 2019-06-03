@@ -13,7 +13,8 @@
     "activeTab",
     "management",
     "tabs",
-    "sessions"
+    "sessions",
+    "https://webtruyen.com/*"
   ],
   "browser_action": {
     "default_popup": "popup.html",
@@ -28,5 +29,5 @@
   "web_accessible_resources": [
     "newtab.html"
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": ""
 }

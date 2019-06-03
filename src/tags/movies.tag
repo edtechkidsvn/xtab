@@ -40,7 +40,7 @@
     import PouchDB from 'pouchdb';
 
     let moviesDb = new PouchDB('movies-db');
-
+    
     async function fetchMoviesIfNeeded() {
       console.log("Check if database fetch is needed");
       if (!checkIfFetchMoviesNeeded()) {
