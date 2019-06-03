@@ -1,6 +1,6 @@
 <memes>
   <h2>Memes</h2>
-  <div id="memes_content">
+  <div id="memes_content" onscroll={scroll}>
     <div each={posts} class="meme-item">
       <div class="meme-item-title">
         <raw html={title}></raw>
@@ -9,10 +9,14 @@
       <video class="fluid" show={type == 'Animated'} controls>
         <source src={images.image460sv && images.image460sv.url}>
       </video>
-      <br>
     </div>
+    <div id="memes_loading" show={loading}>Loading...</div>
   </div>
   <style>
+    #memes_loading {
+      margin: 16px 0px;
+    }
+
     .fluid {
       width: 100%;
       height: auto;
@@ -37,14 +41,29 @@
     import loadMemes from '../services/memes';
 
     this.on('mount', async () => {
-      const memesData = await loadMemes();
-      this.posts = memesData.posts;
+      this.loading = true;
+      this.update();
+      this.memesData = await loadMemes();
+      this.posts = this.memesData.posts;
+      this.loading = false;
       this.update();
     });
 
     this.on('update', () => {
       riot.mount('raw');
     })
+
+    this.scroll = (async (e) => {
+      if (e.target.scrollHeight - e.target.scrollTop < 1000 && !this.loading) {
+        console.log('load more');
+        this.loading = true;
+        this.update();
+        this.memesData = await loadMemes(this.memesData.nextCursor);
+        this.posts = [...this.posts, ...this.memesData.posts];
+        this.loading = false;
+        this.update();
+      }
+    }).bind(this);
 
   </script>
 </memes>

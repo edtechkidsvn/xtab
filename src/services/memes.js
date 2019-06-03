@@ -1,9 +1,9 @@
 import { loadContent } from '../js/utils';
 
-const url = 'https://9gag.com/v1/group-posts/group/default/type/hot';
+const defaultUrl = 'https://9gag.com/v1/group-posts/group/default/type/hot';
 
-async function loadMemes() {
-  const memesObject = await loadContent(url);
+async function loadMemes(nextCursor) {
+  const memesObject = await loadContent(`${defaultUrl}?${nextCursor || ''}`);
   return memesObject.data;
 }
 
