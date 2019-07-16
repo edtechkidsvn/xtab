@@ -14,30 +14,6 @@
     display: flex;
     flex-direction: column;
   }
-  .tabs > ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-  }
-  .tabs > ul > li {
-    padding-bottom: 2px;
-    cursor: pointer;
-  }
-
-  .tabs > ul > li:nth-child(n+2) {
-    margin-left: 8px;
-  }
-  
-  .tabs > ul > li:hover,
-  .tabs > ul > li.active {
-    border-bottom: 2px solid #000000;
-  }
-
-  #tab_content {
-    overflow: auto;
-    height: 100%;
-    position: relative;
-  }
   </style>
   <script>
     import './novels.search.tag';

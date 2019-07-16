@@ -6,8 +6,13 @@ async function waitForRandomSecs() {
   })
 }
 
-async function loadContent(url, withDelay) {
+function addCors(url) {
   const urlWithCors = `https://cors-mx.herokuapp.com/${url}`;
+  return urlWithCors;
+}
+
+async function loadContent(url, withDelay) {
+  const urlWithCors = addCors(url);
   if (withDelay) {
     await waitForRandomSecs();
   }
@@ -15,4 +20,4 @@ async function loadContent(url, withDelay) {
   return response.data;
 }
 
-export { loadContent };
+export { loadContent, addCors };

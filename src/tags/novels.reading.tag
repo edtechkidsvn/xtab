@@ -119,6 +119,7 @@
         this.chapterIndex --;
         await saveChapterIndex();
         this.update();
+        scrollToTop();
       }
     }).bind(this);
 
@@ -127,13 +128,20 @@
         this.chapterIndex ++;
         await saveChapterIndex();
         this.update();
+        scrollToTop();
       }
     }).bind(this);
+
+    function scrollToTop() {
+      const tabContent = document.getElementById("tab_content");
+      tabContent.scrollTop = 0;
+    }
 
     const changeChapter = _.debounce(async (chapterIndex) => {
       this.chapterIndex = chapterIndex;
       await saveChapterIndex();
       this.update();
+      scrollToTop();
     }, 500).bind(this);
 
     this.goto = (async (e) => {
