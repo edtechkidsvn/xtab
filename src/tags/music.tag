@@ -181,6 +181,10 @@
       padding: 0;
     }
 
+    #search_results > li {
+      margin-bottom: 16px;
+    }
+
     #searching {
       margin: 8px 0px 4px 0px;
     }
